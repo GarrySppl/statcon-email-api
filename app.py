@@ -54,8 +54,10 @@ Please follow up with the customer.
     message.attach(MIMEText(body, "plain"))
 
     try:
-        with smtplib.SMTP("smtp.office365.com", 587, timeout=10) as server:
+        with smtplib.SMTP("smtp.office365.com", 587, timeout=20) as server:
+            server.ehlo()
             server.starttls()
+            server.ehlo()
             server.login(sender_email, sender_password)
             server.sendmail(sender_email, receiver_email, message.as_string())
 
