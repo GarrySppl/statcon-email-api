@@ -68,7 +68,7 @@ Please follow up with the customer.
     try:
         print("Connecting to Microsoft SMTP...")
 
-        with smtplib.SMTP("smtp.office365.com", 587, timeout=20) as server:
+        with smtplib.SMTP("smtp.office365.com", 587, timeout=100) as server:
             server.set_debuglevel(1)
             server.ehlo()
             server.starttls()
