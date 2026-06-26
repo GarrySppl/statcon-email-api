@@ -54,7 +54,7 @@ Please follow up with the customer.
     message.attach(MIMEText(body, "plain"))
 
     try:
-        with smtplib.SMTP("smtp.office365.com", 587) as server:
+        with smtplib.SMTP("smtp.office365.com", 587, timeout=10) as server:
             server.starttls()
             server.login(sender_email, sender_password)
             server.sendmail(sender_email, receiver_email, message.as_string())
